@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\mods\shvdn-probe\ghmr_gtav_derailed_probe.3.cs"
+             Link="ghmr_gtav_derailed_probe.3.cs" />
+    <Compile Include="..\..\mods\scripthookdotnet-bridge\ghmr_gtav_bridge.3.cs"
+             Link="ghmr_gtav_bridge.3.cs" />
+  </ItemGroup>
+</Project>

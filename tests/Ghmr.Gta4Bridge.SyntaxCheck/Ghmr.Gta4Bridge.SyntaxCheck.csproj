@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Nullable>disable</Nullable>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\mods\scripthookdotnet-bridge\ghmr_gta4_bridge.cs"
+             Link="ghmr_gta4_bridge.cs" />
+    <Compile Include="GTAStubs.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Ghmr.Core\Ghmr.Core.csproj" />
+    <Compile Include="..\..\src\Ghmr.Controller\Diagnostics\ControllerDiagnosticLog.cs"
+             Link="ControllerDiagnosticLog.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\IniBridgeServer.cs"
+             Link="IniBridgeServer.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\BridgeServer.cs"
+             Link="BridgeServer.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\Installation\BridgeCompatibility.cs"
+             Link="BridgeCompatibility.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\ControllerCoordinator.cs"
+             Link="ControllerCoordinator.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\ControllerPreferencesStore.cs" Link="ControllerPreferencesStore.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\Launch\ResumeMenuRecognition.cs" Link="ResumeMenuRecognition.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\Launch\GtaVPassScreenRecognition.cs" Link="GtaVPassScreenRecognition.cs" />
+    <Compile Include="..\..\src\Ghmr.Controller\Launch\CompletedGameClosePolicy.cs" Link="CompletedGameClosePolicy.cs" />
+    <None Update="DerailPass*.bin.gz" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\config\missions.v0.1.json"
+          Link="config\missions.v0.1.json"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

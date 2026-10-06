@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>GHMR.Core.SelfTest</AssemblyName>
+    <RootNamespace>Ghmr.Core.SelfTest</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Ghmr.Core\Ghmr.Core.csproj" />
+    <None Include="..\..\config\missions.v0.1.json"
+          Link="config\missions.v0.1.json"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\config\cleo\ghmr-ini-extension.v1.json"
+          Link="config\cleo\ghmr-ini-extension.v1.json"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

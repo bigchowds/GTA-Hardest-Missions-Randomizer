@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>GHMR.Controller</AssemblyName>
+    <RootNamespace>Ghmr.Controller</RootNamespace>
+    <Version>0.4.14</Version>
+    <AssemblyVersion>0.4.14.0</AssemblyVersion>
+    <FileVersion>0.4.14.0</FileVersion>
+    <InformationalVersion>0.4.14-gtav-handoff-close</InformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ghmr.Core\Ghmr.Core.csproj" />
+    <None Include="..\..\config\missions.v0.1.json"
+          Link="config\missions.v0.1.json"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\config\cleo\ghmr-ini-extension.v1.json"
+          Link="config\cleo\ghmr-ini-extension.v1.json"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Assets\Transitions\*.*"
+          TargetPath="media\transitions\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
