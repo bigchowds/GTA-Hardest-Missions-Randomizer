@@ -1,0 +1,138 @@
+name: Build Windows beta
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - uses: microsoft/setup-msbuild@v3
+        with:
+          msbuild-architecture: x64
+      - name: Restore
+        run: dotnet restore GHMR.sln
+      - name: Build
+        run: dotnet build GHMR.sln --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:DebugType=None -p:DebugSymbols=false
+      - name: Core self-test
+        run: dotnet run --project tests/Ghmr.Core.SelfTest/Ghmr.Core.SelfTest.csproj --configuration Release --no-build
+      - name: Controller diagnostics, pass-screen recognition, handoff recovery and delivery self-test
+        run: dotnet run --project tests/Ghmr.ControllerLog.SelfTest/Ghmr.ControllerLog.SelfTest.csproj --configuration Release --no-build
+      - name: GTA IV event-retention and completion-evidence self-test
+        run: dotnet run --project tests/Ghmr.Gta4Bridge.SyntaxCheck/Ghmr.Gta4Bridge.SyntaxCheck.csproj --configuration Release --no-build
+      - name: Reference run-plan self-test
+        run: node tools/Simulate-RunPlan.mjs --self-test
+      - name: San Andreas launch-probe self-test
+        run: node tools/Test-SaLaunchProbe.mjs
+      - name: San Andreas controller-bridge self-test
+        run: node tools/Test-SaControllerBridge.mjs
+      - name: GTA III controller-bridge self-test
+        run: node tools/Test-Gta3ControllerBridge.mjs
+      - name: Vice City controller-bridge self-test
+        run: node tools/Test-ViceCityControllerBridge.mjs
+      - name: GTA IV controller-bridge self-test
+        run: node tools/Test-Gta4ControllerBridge.mjs
+      - name: GTA V Derailed lifecycle-probe self-test
+        run: node tools/Test-GtavDerailedProbe.mjs
+      - name: GTA V controller-bridge self-test
+        run: node tools/Test-GtavControllerBridge.mjs
+      - name: Controller INI game-slot self-test
+        run: node tools/Test-ControllerIniGameSlots.mjs
+      - name: CLEO INI bridge transport self-test
+        run: node tools/Test-IniBridgeTransport.mjs
+      - name: Rockstar startup-dialog auto-confirm self-test
+        run: node tools/Test-RockstarStartupDialogAutoConfirm.mjs
+      - name: Trilogy platform launch-routing self-test
+        run: node tools/Test-TrilogyLaunchRouting.mjs
+      - name: Cross-game handoff stability self-test
+        run: node tools/Test-GameHandoffStability.mjs
+      - name: Packaged bridge-version compatibility self-test
+        run: node tools/Test-BridgeVersionCompatibility.mjs
+      - name: Active-game exit safety self-test
+        run: node tools/Test-ActiveGameExit.mjs
+      - name: Publish controller
+        run: dotnet publish src/Ghmr.Controller/Ghmr.Controller.csproj --configuration Release --runtime win-x64 --self-contained true --output artifacts/controller -p:PublishSingleFile=true -p:DebugType=None -p:DebugSymbols=false -p:ContinuousIntegrationBuild=true
+      - name: Stage game adapters
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/cleo | Out-Null
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/sade | Out-Null
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/gta3de | Out-Null
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/vcde | Out-Null
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/gta4 | Out-Null
+          New-Item -ItemType Directory -Force artifacts/controller/adapters/gtav_enhanced | Out-Null
+          Copy-Item mods/cleo-bridge/ghmr_ini_transport.js artifacts/controller/adapters/cleo/
+          Copy-Item mods/cleo-bridge/ghmr_sa_bridge.js artifacts/controller/adapters/sade/
+          Copy-Item mods/cleo-bridge/ghmr_gta3_bridge.js artifacts/controller/adapters/gta3de/
+          Copy-Item mods/cleo-bridge/ghmr_vc_bridge.js artifacts/controller/adapters/vcde/
+          Copy-Item mods/scripthookdotnet-bridge/ghmr_gta4_bridge.cs artifacts/controller/adapters/gta4/
+          Copy-Item mods/scripthookdotnet-bridge/ghmr_gtav_bridge.3.cs artifacts/controller/adapters/gtav_enhanced/
+          Copy-Item config/cleo/ghmr-ini-extension.v1.json artifacts/controller/adapters/cleo/
+      - name: Stage player documentation and build metadata
+        shell: pwsh
+        run: |
+          $packageRoot = "artifacts/controller"
+          New-Item -ItemType Directory -Force "$packageRoot/docs/assets" | Out-Null
+          foreach ($file in @("README.md", "START-HERE.txt", "LICENSE", "CHANGELOG.md", "CONTRIBUTING.md")) {
+            Copy-Item $file "$packageRoot/"
+          }
+          $playerDocs = @("INSTALL.md", "TESTED-COMPATIBILITY.md", "TROUBLESHOOTING.md", "SAVE-BASELINE.md", "FIVE-MISSION-BETA-RULES.md", "CONTROLLER-SUPPORT.md", "TRUST-AND-RELEASES.md", "MEDIA-CREDITS.md", "DEVELOPMENT.md")
+          foreach ($file in $playerDocs) {
+            Copy-Item "docs/$file" "$packageRoot/docs/"
+          }
+          Copy-Item docs/assets/ghmr-banner.svg "$packageRoot/docs/assets/"
+          $metadata = [ordered]@{
+            packageVersion = "0.4.14-beta.1"
+            controllerVersion = "0.4.14"
+            runtime = "win-x64"
+            unsigned = $true
+            sourceCommit = $env:GITHUB_SHA
+            sourceRepository = $env:GITHUB_REPOSITORY
+            buildRun = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+            builtUtc = (Get-Date).ToUniversalTime().ToString("o")
+            bridgeVersions = [ordered]@{
+              sade = "0.1.4"
+              gta3de = "0.1.5"
+              vcde = "0.1.7"
+              gta4 = "0.1.17-retained-event-delivery"
+              gtav_enhanced = "0.1.13-foreground-restore-confirm"
+            }
+          }
+          $metadata | ConvertTo-Json -Depth 4 | Set-Content "$packageRoot/release.json" -Encoding utf8NoBOM
+      - name: Validate complete beta package
+        run: node tools/Test-ReleasePackage.mjs artifacts/controller
+      - name: Package and checksum
+        shell: pwsh
+        run: |
+          $packageRoot = (Resolve-Path "artifacts/controller").Path
+          $checksums = Get-ChildItem $packageRoot -File -Recurse | Sort-Object FullName | ForEach-Object {
+            $relative = [IO.Path]::GetRelativePath($packageRoot, $_.FullName).Replace('\', '/')
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash  $relative"
+          }
+          $checksums | Set-Content "$packageRoot/SHA256SUMS.txt" -Encoding utf8NoBOM
+          Compress-Archive -Path artifacts/controller/* -DestinationPath artifacts/GHMR-v0.4.14-beta.1-win-x64.zip
+          (Get-FileHash artifacts/GHMR-v0.4.14-beta.1-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant() | Set-Content artifacts/GHMR-v0.4.14-beta.1-win-x64.zip.sha256 -Encoding ascii
+      - name: Attest beta archive
+        if: github.event_name == 'push' && github.event.repository.private == false
+        uses: actions/attest@v4
+        with:
+          subject-path: artifacts/GHMR-v0.4.14-beta.1-win-x64.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GHMR-v0.4.14-beta.1-win-x64
+          path: |
+            artifacts/GHMR-v0.4.14-beta.1-win-x64.zip
+            artifacts/GHMR-v0.4.14-beta.1-win-x64.zip.sha256
+          if-no-files-found: error
