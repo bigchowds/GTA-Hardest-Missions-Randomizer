@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.Core", "src\Ghmr.Core\Ghmr.Core.csproj", "{8E2DBE79-8687-4F2B-9F5E-DFF723A6D25E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.Controller", "src\Ghmr.Controller\Ghmr.Controller.csproj", "{5CD493E7-66AB-4EF3-8BF5-EAC8EB4551DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.SimulatedBridge", "src\Ghmr.SimulatedBridge\Ghmr.SimulatedBridge.csproj", "{0E10EF4F-FC2D-4EA5-8B32-83E6FCBC981E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.Core.SelfTest", "tests\Ghmr.Core.SelfTest\Ghmr.Core.SelfTest.csproj", "{7599491B-305F-452D-8E2B-94CD956CB16A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.Gta4Bridge.SyntaxCheck", "tests\Ghmr.Gta4Bridge.SyntaxCheck\Ghmr.Gta4Bridge.SyntaxCheck.csproj", "{B219B2D4-1F60-45EC-A831-BC406E4C6A74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.GtavProbe.SyntaxCheck", "tests\Ghmr.GtavProbe.SyntaxCheck\Ghmr.GtavProbe.SyntaxCheck.csproj", "{8412D4BF-9E0A-4B13-A764-17AF2D0635A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghmr.ControllerLog.SelfTest", "tests\Ghmr.ControllerLog.SelfTest\Ghmr.ControllerLog.SelfTest.csproj", "{68F82B15-C41B-4E4A-9B9A-04E28365E0B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E2DBE79-8687-4F2B-9F5E-DFF723A6D25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2DBE79-8687-4F2B-9F5E-DFF723A6D25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2DBE79-8687-4F2B-9F5E-DFF723A6D25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2DBE79-8687-4F2B-9F5E-DFF723A6D25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD493E7-66AB-4EF3-8BF5-EAC8EB4551DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD493E7-66AB-4EF3-8BF5-EAC8EB4551DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD493E7-66AB-4EF3-8BF5-EAC8EB4551DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD493E7-66AB-4EF3-8BF5-EAC8EB4551DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E10EF4F-FC2D-4EA5-8B32-83E6FCBC981E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E10EF4F-FC2D-4EA5-8B32-83E6FCBC981E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E10EF4F-FC2D-4EA5-8B32-83E6FCBC981E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E10EF4F-FC2D-4EA5-8B32-83E6FCBC981E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7599491B-305F-452D-8E2B-94CD956CB16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7599491B-305F-452D-8E2B-94CD956CB16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7599491B-305F-452D-8E2B-94CD956CB16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7599491B-305F-452D-8E2B-94CD956CB16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B219B2D4-1F60-45EC-A831-BC406E4C6A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B219B2D4-1F60-45EC-A831-BC406E4C6A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B219B2D4-1F60-45EC-A831-BC406E4C6A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B219B2D4-1F60-45EC-A831-BC406E4C6A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8412D4BF-9E0A-4B13-A764-17AF2D0635A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8412D4BF-9E0A-4B13-A764-17AF2D0635A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8412D4BF-9E0A-4B13-A764-17AF2D0635A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8412D4BF-9E0A-4B13-A764-17AF2D0635A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F82B15-C41B-4E4A-9B9A-04E28365E0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F82B15-C41B-4E4A-9B9A-04E28365E0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F82B15-C41B-4E4A-9B9A-04E28365E0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F82B15-C41B-4E4A-9B9A-04E28365E0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

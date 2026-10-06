@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "status": "provisional",
+  "missions": [
+    {
+      "id": "gta3.espresso_2_go",
+      "game": "gta3de",
+      "title": "Espresso-2-Go!",
+      "variant": "Story mission",
+      "bridgeStatus": "source-verified-adapter-provisional",
+      "launchIndex": 72
+    },
+    {
+      "id": "gta3.sam",
+      "game": "gta3de",
+      "title": "S.A.M.",
+      "variant": "Story mission",
+      "bridgeStatus": "source-verified-adapter-provisional",
+      "launchIndex": 73
+    },
+    {
+      "id": "gta3.the_exchange",
+      "game": "gta3de",
+      "title": "The Exchange",
+      "variant": "Story finale",
+      "bridgeStatus": "source-verified-adapter-provisional",
+      "launchIndex": 79
+    },
+    {
+      "id": "vc.demolition_man",
+      "game": "vcde",
+      "title": "Demolition Man",
+      "variant": "Story mission",
+      "bridgeStatus": "source-verified-adapter-provisional",
+      "launchIndex": 19
+    },
+    {
+      "id": "vc.the_driver",
+      "game": "vcde",
+      "title": "The Driver",
+      "variant": "Story mission",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "vc.death_row",
+      "game": "vcde",
+      "title": "Death Row",
+      "variant": "Story mission",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "sa.supply_lines",
+      "game": "sade",
+      "title": "Supply Lines...",
+      "variant": "Definitive Edition balance",
+      "bridgeStatus": "launch-index-provisional",
+      "launchIndex": 73
+    },
+    {
+      "id": "sa.end_of_the_line",
+      "game": "sade",
+      "title": "End of the Line",
+      "variant": "Story finale",
+      "bridgeStatus": "launch-index-provisional",
+      "launchIndex": 110
+    },
+    {
+      "id": "sa.wrong_side_of_the_tracks",
+      "game": "sade",
+      "title": "Wrong Side of the Tracks",
+      "variant": "Story mission",
+      "bridgeStatus": "launch-retry-completion-observed",
+      "launchIndex": 29
+    },
+    {
+      "id": "gta4.out_of_commission",
+      "game": "gta4",
+      "title": "Out of Commission",
+      "variant": "Revenge ending",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "gta4.three_leaf_clover",
+      "game": "gta4",
+      "title": "Three Leaf Clover",
+      "variant": "Story mission",
+      "bridgeStatus": "launch-retry-completion-observed",
+      "launchScript": "Packie3"
+    },
+    {
+      "id": "gta4.the_snow_storm",
+      "game": "gta4",
+      "title": "The Snow Storm",
+      "variant": "Story mission",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "gtav.the_big_score",
+      "game": "gtav_enhanced",
+      "title": "The Big Score",
+      "variant": "Obvious approach (provisional)",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "gtav.minor_turbulence",
+      "game": "gtav_enhanced",
+      "title": "Minor Turbulence",
+      "variant": "Story mission",
+      "bridgeStatus": "unverified"
+    },
+    {
+      "id": "gtav.derailed",
+      "game": "gtav_enhanced",
+      "title": "Derailed",
+      "variant": "Story mission",
+      "bridgeStatus": "launch-retry-completion-observed",
+      "launchScript": "exile3"
+    }
+  ]
+}

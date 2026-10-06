@@ -1,0 +1,29 @@
+{
+  "name": "ghmr",
+  "commands": [
+    {
+      "input": [
+        { "name": "path", "type": "string" },
+        { "name": "section", "type": "string" },
+        { "name": "key", "type": "string" }
+      ],
+      "output": [
+        { "name": "value", "type": "string", "source": "var_any" }
+      ],
+      "name": "READ_STRING_FROM_INI_FILE",
+      "num_params": 4,
+      "short_desc": "Reads a GHMR bridge value using CLEO's installed IniFiles plugin"
+    },
+    {
+      "input": [
+        { "name": "value", "type": "string" },
+        { "name": "path", "type": "string" },
+        { "name": "section", "type": "string" },
+        { "name": "key", "type": "string" }
+      ],
+      "name": "WRITE_STRING_TO_INI_FILE",
+      "num_params": 4,
+      "short_desc": "Writes a GHMR bridge value using CLEO's installed IniFiles plugin"
+    }
+  ]
+}

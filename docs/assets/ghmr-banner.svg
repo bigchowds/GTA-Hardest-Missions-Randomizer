@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="330" viewBox="0 0 1280 330" role="img" aria-labelledby="title desc">
+<title id="title">GTA Multiverse Hardest Missions Randomizer</title><desc id="desc">Five games. Five missions. A new order every run. Five-mission beta.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#17212e"/><stop offset="1" stop-color="#080c12"/></linearGradient></defs>
+<rect width="1280" height="330" rx="18" fill="url(#bg)"/>
+<path d="M0 287h88v-49h61v-47h60v64h86v-38h52v70h111v-38h46v-32h56v70h77v-58h72v58h92v-43h54v-39h53v82h98v-55h57v55h117v43H0z" fill="#253241" opacity=".55"/>
+<rect x="43" y="46" width="5" height="190" fill="#e7ba4c"/>
+<g fill="#f7f8fa" font-family="Arial, sans-serif" font-weight="700"><text x="73" y="85" font-size="21" letter-spacing="4" fill="#e7ba4c">BIGCHOWDS PRESENTS</text><text x="70" y="144" font-size="47">GTA MULTIVERSE</text><text x="73" y="183" font-size="25" letter-spacing="2">HARDEST MISSIONS RANDOMIZER</text></g>
+<text x="73" y="224" font-family="Arial, sans-serif" font-size="20" fill="#b8c4d2">Five games. Five missions. A new order every run.</text>
+<rect x="927" y="53" width="280" height="46" rx="7" fill="#e7ba4c"/><text x="1067" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#10151e">FIVE-MISSION BETA</text>
+<g font-family="Arial, sans-serif" text-anchor="middle" font-weight="700" font-size="25"><rect x="927" y="124" width="48" height="60" rx="5" fill="#2897bf"/><text x="951" y="164" fill="#fff">III</text><rect x="985" y="124" width="48" height="60" rx="5" fill="#ca5294"/><text x="1009" y="164" fill="#fff">VC</text><rect x="1043" y="124" width="48" height="60" rx="5" fill="#99b13b"/><text x="1067" y="164" fill="#fff">SA</text><rect x="1101" y="124" width="48" height="60" rx="5" fill="#758390"/><text x="1125" y="164" fill="#fff">IV</text><rect x="1159" y="124" width="48" height="60" rx="5" fill="#44977d"/><text x="1183" y="164" fill="#fff">V</text></g>
+<text x="1067" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#b8c4d2">WINDOWS · SINGLE PLAYER</text>
+<rect x="43" y="288" width="238" height="5" fill="#2897bf"/><rect x="281" y="288" width="238" height="5" fill="#ca5294"/><rect x="519" y="288" width="238" height="5" fill="#99b13b"/><rect x="757" y="288" width="238" height="5" fill="#758390"/><rect x="995" y="288" width="242" height="5" fill="#44977d"/>
+</svg>

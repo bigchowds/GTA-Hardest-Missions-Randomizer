@@ -1,0 +1,33 @@
+GTA MULTIVERSE HARDEST MISSIONS RANDOMIZER
+Five-mission beta | Controller v0.4.14 | Windows x64
+
+1. Extract the ENTIRE release ZIP. Do not run the EXE inside the ZIP.
+2. Read docs/INSTALL.md and docs/TESTED-COMPATIBILITY.md.
+3. Back up your personal saves. Supply a compatible clean baseline for each game.
+   IMPORTANT: GTA IV needs a save from BEFORE Three Leaf Clover, with Packie's
+   mission marker available and Niko in a suit, tie and smart shoes.
+4. Install each game's required scripting runtime from its official source.
+   Games, saves, trainers and scripting runtimes are NOT bundled.
+5. Launch each game once with its runtime, then close it.
+6. Open GHMR.Controller.exe > Setup Game Bridges.
+   Select the actual game EXE and Install / Repair Bridge for EACH of the five games.
+7. Choose Start Run in Random order mode. Select Resume / Story Mode if needed.
+
+Finished + 5/5 means the run is complete. The final game intentionally stays open.
+Stop Run ends the attempt and cancels pending handoffs.
+Options > Open Logs helps diagnose problems.
+
+This beta is unsigned. SmartScreen may warn about an unrecognized app.
+Windows 11 Smart App Control may block it and has no per-app allow option.
+A Defender Antivirus threat detection is different; report its exact name.
+Read docs/TRUST-AND-RELEASES.md for the Windows security notice.
+Source, build details and SHA-256 checksums do not bypass Windows protection.
+Do not disable security or add broad antivirus exclusions to run it.
+
+Only single-player is supported. Use a separate modded single-player setup;
+restore the game's required clean configuration before entering online modes.
+
+Help: docs/TROUBLESHOOTING.md
+Rules: docs/FIVE-MISSION-BETA-RULES.md
+YouTube: https://www.youtube.com/@BigChowds
+Releases: https://github.com/bigchowds/GTA-Hardest-Missions-Randomizer/releases
